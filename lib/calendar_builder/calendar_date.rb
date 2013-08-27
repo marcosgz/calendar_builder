@@ -51,6 +51,26 @@ module CalendarBuilder
       self.calendar_date.next_month == self.month
     end
 
+    def prev_week
+      self.week == 1 ? 53 : (self.week - 1)
+    end
+
+    def next_week
+      self.week == 53 ? 1 : (self.week + 1)
+    end
+
+    def prev_week?
+      self.calendar_date.prev_week == self.week
+    end
+
+    def current_week?
+      self.calendar_date.week == self.week
+    end
+
+    def next_week?
+      self.calendar_date.next_week == self.week
+    end
+
     def current?
       self.calendar_date.date == self.date
     end

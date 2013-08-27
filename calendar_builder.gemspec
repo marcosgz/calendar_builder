@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Marcos G. Zimmermann"]
   gem.email         = ["mgzmaster@gmail.com"]
   gem.description   = %q{Simple calendar helper}
-  gem.summary       = %q{Simple calendar helper}
+  gem.summary       = %q{Simple calendar}
   gem.homepage      = "http://github.com/marcosgz/calendar_builder"
   gem.license       = %q{MIT}
 

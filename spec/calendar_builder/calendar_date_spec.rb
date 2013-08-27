@@ -21,6 +21,16 @@ describe CalendarBuilder::CalendarDate do
 
   pending :next_month?
 
+  pending :prev_week
+
+  pending :next_week
+
+  pending :prev_week?
+
+  pending :current_week?
+
+  pending :next_week?
+
   pending :current?
 
   pending :today?

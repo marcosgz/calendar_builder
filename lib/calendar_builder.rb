@@ -49,14 +49,17 @@ module CalendarBuilder
         (0..arr.size/7 - 1).collect{|i| arr[i*7, 7]}.each do |dates|
           tr_classes = ['week']
           dates.each do |d|
-            tr_classes << 'current_week' if d.week == calendar.calendar_date.week
+            tr_classes << 'prev_week'     if d.prev_week?
+            tr_classes << 'next_week'     if d.next_week?
+            td_classes << 'other_week'    if !d.current_week?
+            tr_classes << 'current_week'  if d.current_week?
           end
           html << "<tr class=\"#{tr_classes.uniq.join(' ')}\">"
           dates.each do |d|
             td_classes = ['day']
             td_classes << 'prev_month'  if d.prev_month?
             td_classes << 'next_month'  if d.next_month?
-            td_classes << 'otherMonth'  if d.prev_month? || d.next_month?
+            td_classes << 'other_month' if !d.current?
             td_classes << 'weekend'     if d.weekend?
             td_classes << 'current'     if d.current?
             td_classes << 'today'       if d.today?
