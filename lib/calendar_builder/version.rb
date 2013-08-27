@@ -1,4 +1,4 @@
 # -*- encoding: utf-8 -*-
 module CalendarBuilder
-  VERSION = "0.0.0.rc1"
+  VERSION = "0.0.1.rc1"
 end
