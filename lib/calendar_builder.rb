@@ -51,7 +51,7 @@ module CalendarBuilder
           dates.each do |d|
             tr_classes << 'prev_week'     if d.prev_week?
             tr_classes << 'next_week'     if d.next_week?
-            td_classes << 'other_week'    if !d.current_week?
+            tr_classes << 'other_week'    if !d.current_week?
             tr_classes << 'current_week'  if d.current_week?
           end
           html << "<tr class=\"#{tr_classes.uniq.join(' ')}\">"
