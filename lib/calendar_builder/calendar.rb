@@ -12,6 +12,7 @@ module CalendarBuilder
 
     # :sunday, :monday
     def week_start=(val='Sunday')
+      @last_date = @first_date = @calendar_date = nil
       @week_start = \
         case val.class.name
         when 'String', 'Symbol'
@@ -23,9 +24,13 @@ module CalendarBuilder
         end || 0
     end
 
-
     def week_start
       @week_start || 0
+    end
+
+
+    def week_end
+      week_start > 0 ? week_start - 1 : 6
     end
 
 
@@ -51,8 +56,7 @@ module CalendarBuilder
         m = self.date.month
         d = (1..31).to_a.reverse.detect{|x| Date.valid_date?(y, m, x)}
         ld = Date.new(y, m, d)
-        ld += (ld.wday != week_start ? 6-(ld.wday-week_start) : 0)
-        ld
+        ld.wday == week_end ? ld : ((ld+1)..(ld+7)).find{|d| d.wday == week_end}
       end
     end
 
